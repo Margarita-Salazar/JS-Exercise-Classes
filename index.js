@@ -174,10 +174,33 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian{
+   constructor(attrs){
+     super(attrs);
+     this.previousBackground = attrs.previousBackground;
+     this.className = attrs.className;
+     this.favSubjects = attrs.favSubjects;
+   }
+   listSubjects(){
+     return `Loving ${this.favSubjects}`
+   }
+   PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`
+   }
+   sprintChallenge(subject){
+     return `${this.name} has begun sprint challenge on ${subject}`
+   }
  }
-  
+let lucy = new Student({
+  name: 'Lucy',
+  age: 22,
+  location: 'Denver',
+  previousBackground: 'Nurse',
+  className: 'CS132',
+  favSubjects: 'HTML'
+})
+console.log(lucy.name)
+console.log(lucy.className)
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -191,8 +214,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+   constructor(attrs){
+     super(attrs);
+     this.gradClassName = attrs.gradClassName;
+     this.favInstructor = attrs.favInstructor;
+   }
+   standUp(slackChannel){
+     return `${this.name} announces to ${slackChannel}, @channel standy times!`
+   }
+   debugsCode(studentObj,subject){
+     return `${this.name} debugs ${studentObj.name}'s code on ${subject} `
+   }
  }
   /*
     STRETCH PROBLEM (no tests!)
